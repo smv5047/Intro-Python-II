@@ -27,6 +27,8 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
+room['foyer'].items = ["sword", "shield"]
+
 #
 # Main
 #
@@ -43,6 +45,9 @@ while ready == True:
     print(player1.current_room)
 # * Prints the current description (the textwrap module might be useful here).
     print(player1.current_room.description)
+    if player1.current_room.items is not None:
+        for item in len(player1.current_room.items):
+            print(player1.current_room.items)
 # * Waits for user input and decides what to do.
 #
 #
@@ -51,7 +56,7 @@ while ready == True:
 # Print an error message if the movement isn't allowed
     print("***Type q to quit***")
     choice = input("Please enter a direction: n, e, s, w  ")
-    print(player1.current_room.n_to)
+
     try:
         if (choice == 'q'):
             break
